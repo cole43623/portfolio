@@ -11,8 +11,6 @@
             height: 100vh;
         }
         
-        #caricatore{display: none;}
-        
         #container {
             position: absolute;
             width: 100%;
@@ -43,7 +41,6 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            transform: translate(0, 0);
             transition: transform 1.5s ease-out;
             pointer-events: none;
             z-index: -2;
@@ -55,7 +52,6 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            transform: translate(0, 0);
             transition: transform 1.5s ease-out, width 1s, height 1s;
             pointer-events: none;
             font-size: 20px;
@@ -249,7 +245,6 @@
 <script src="https://kit.fontawesome.com/382ea6760c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="caricatore"></div>
     <div id="container">
         <div class="cornice">
             <div id="elementi">
@@ -350,10 +345,6 @@
         ll.className= 'fa fa-linkedin';
         linkedin.appendChild(ll);
         linkedin.addEventListener("click", april);
-        
-        var caricatore = document.getElementById("caricatore");
-        caricatore.appendChild(email);
-        caricatore.appendChild(linkedin);
         let scelta=0
         function comando1() {
             var elementi = document.getElementById("elementi");
@@ -391,7 +382,10 @@
                 scelta=0;}
         }
         
-        
+        const dima=window.screen.width;
+        const dimb=window.screen.height;
+        const fina=0.556*dima
+        const finb=0.1285*dimb
         function pallino(){
             if (scelta!=1){
                 if (scelta==2){
@@ -404,8 +398,8 @@
                 }
                 nome.style.transform = `translate(-700px,100px)`;
                 professione.style.transform = `translate(-700px,100px)`;
-                const dx = 855 - initialX1;
-                const dy = 110 - initialY1;
+                const dx = fina - initialX1;
+                const dy = finb - initialY1;
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
                 p1.classList.toggle("expanded");
                 setTimeout(() => {
