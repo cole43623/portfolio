@@ -184,11 +184,65 @@
           font-weight: 900;
         }
         
-        .stoccafisso {
+        .adg {
           position: absolute;
           width: 400px;
           height: 10px;
           top: 195px;
+          right: 70px;
+          color: white;
+          font-size: 20px;
+          text-align: end;
+          animation: fadein 0.7s;
+        }
+        .adg::before {
+          content: "Anagrafe di governo (credito) -";
+        }
+        .adg:hover {
+          font-weight: 900;
+        }
+        
+        .PastDue {
+          position: absolute;
+          width: 400px;
+          height: 10px;
+          top: 217px;
+          right: 70px;
+          color: white;
+          font-size: 20px;
+          text-align: end;
+          animation: fadein 0.7s;
+        }
+        .PastDue::before {
+          content: "Past due 01/01/2021 -";
+        }
+        .PastDue:hover {
+          font-weight: 900;
+        }
+        
+        .wordle {
+          position: absolute;
+          width: 400px;
+          height: 10px;
+          top: 239px;
+          right: 70px;
+          color: white;
+          font-size: 20px;
+          text-align: end;
+          animation: fadein 0.7s;
+        }
+        .wordle::before {
+          content: "Risolutore Wordle (ITA) -";
+        }
+        .wordle:hover {
+          font-weight: 900;
+        }
+        
+        .stoccafisso {
+          position: absolute;
+          width: 400px;
+          height: 10px;
+          top: 261px;
           right: 70px;
           color: white;
           font-size: 20px;
@@ -329,8 +383,16 @@
         const contact = document.createElement('div');
         contact.className = 'contact';
         contact.addEventListener("click", contatti);
+        const adg = document.createElement('div');
+        adg.className = 'adg';
+        const PastDue = document.createElement('div');
+        PastDue.className = 'PastDue';
+        const wordle = document.createElement('div');
+        wordle.className = 'wordle';
+        wordle.addEventListener("click", apriw);
         const stoccafisso = document.createElement('div');
         stoccafisso.className = 'stoccafisso';
+        
         
         const email = document.createElement('div');
         email.className = 'email';
@@ -365,6 +427,9 @@
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==2){
+                    elementi.removeChild(adg);
+                    elementi.removeChild(PastDue);
+                    elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
                     contact.style.transform = `translate(0px,0px)`;
                 }
@@ -389,6 +454,9 @@
         function pallino(){
             if (scelta!=1){
                 if (scelta==2){
+                    elementi.removeChild(adg);
+                    elementi.removeChild(PastDue);
+                    elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
                     contact.style.transform = `translate(0px,0px)`;
                 }
@@ -430,11 +498,17 @@
                     elementi.removeChild(email);
                     elementi.removeChild(linkedin);
                 }
-                contact.style.transform = `translate(0px,90px)`;
+                contact.style.transform = `translate(0px,100px)`;
+                elementi.appendChild(adg);
+                elementi.appendChild(PastDue);
+                elementi.appendChild(wordle);
                 elementi.appendChild(stoccafisso);
                 scelta=2;
             }else{
                 contact.style.transform = `translate(0px,0px)`;
+                elementi.removeChild(adg);
+                elementi.removeChild(PastDue);
+                elementi.removeChild(wordle);
                 elementi.removeChild(stoccafisso);
                 scelta=0;
             }
@@ -450,6 +524,9 @@
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==2){
+                    elementi.removeChild(adg);
+                    elementi.removeChild(PastDue);
+                    elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
                     contact.style.transform = `translate(0px,0px)`;
                 }
@@ -470,6 +547,10 @@
         
         function april(){
               window.open("https://www.linkedin.com/in/simone-marinelli-71714192/"); 
+        }
+        
+        function apriw(){
+              window.open("https://cole43623.github.io/provaportfolio/wordle/"); 
         }
     </script>
 </body>
