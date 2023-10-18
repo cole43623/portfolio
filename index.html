@@ -540,13 +540,14 @@
                     elementi.removeChild(linkedin);
                 }
                 if (dima>768) {
-                    nome.style.transform = `translate(-700px,100px)`;
+                    nome.style.transform = `translate(-${dima*0.455}px,100px)`;
+                    professione.style.transform = `translate(-${dima*0.455}px,100px)`;
                 }
                 else{
                     nome.style.transform = `translate(-50%,285px)`;
+                    professione.style.transform = `translate(-700px,100px)`;
                     nome.style.fontSize = '24px';
                 }
-                professione.style.transform = `translate(-700px,100px)`;
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
                 console.log(dx, dy);
                 p1.classList.toggle("expanded");
