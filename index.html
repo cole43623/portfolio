@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             margin: 0;
@@ -26,15 +26,6 @@
           transition: transform 0.7s;
         }
         
-        .professione{
-          position: absolute; /* Imposta la posizione assoluta per il div figlio */
-          top: 57%; /* Posiziona il div figlio a metà dell'altezza del div padre */
-          left: 50%; /* Posiziona il div figlio a metà della larghezza del div padre */
-          transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
-          font-size: 30px;
-          transition: transform 1s;
-          pointer-events: none;
-        }
 
         .dot {
             position: absolute;
@@ -54,18 +45,12 @@
             border-radius: 50%;
             transition: transform 1.5s ease-out, width 1s, height 1s;
             pointer-events: none;
-            font-size: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
             z-index: -1;
-        }
-        .dot2.expanded {
-          height: 400px;
-          width: 400px;
-          padding: 15px;
         }
 
         .cornice {
@@ -162,25 +147,6 @@
           content: "RECENT WORKS";
         }
         .works:hover {
-          font-weight: 900;
-        }
-        
-        .contact {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 195px;
-          right: 70px;
-          color: white;
-          font-size: 22px;
-          text-align: end;
-          animation: fadein 0.7s;
-          transition: transform 0.5s;
-        }
-        .contact::before {
-          content: "CONTACT";
-        }
-        .contact:hover {
           font-weight: 900;
         }
         
@@ -311,7 +277,82 @@
         .linkedin::before {
           content: "My linkedin   ";
         }
+        
+        @media screen and (max-width: 768px) {
+            .professione{
+              position: absolute; /* Imposta la posizione assoluta per il div figlio */
+              top: 59%; /* Posiziona il div figlio a metà dell'altezza del div padre */
+              left: 50%; /* Posiziona il div figlio a metà della larghezza del div padre */
+              transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
+              font-size: 21px;
+              transition: transform 1s;
+              pointer-events: none;
+            }
 
+            .dot2.expanded {
+              height: 300px;
+              width: 300px;
+              padding: 15px;
+              font-size: 16px;
+            }
+
+            .contact {
+              position: absolute;
+              width: 150px;
+              height: 30px;
+              top: 195px;
+              right: 70px;
+              color: white;
+              font-size: 22px;
+              text-align: end;
+              animation: fadein 0.7s;
+              transition: transform 0.5s;
+            }
+
+        }
+        
+        
+        @media screen and (min-width: 769px)  {
+
+            .professione{
+              position: absolute; /* Imposta la posizione assoluta per il div figlio */
+              top: 57%; /* Posiziona il div figlio a metà dell'altezza del div padre */
+              left: 50%; /* Posiziona il div figlio a metà della larghezza del div padre */
+              transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
+              font-size: 30px;
+              transition: transform 1s;
+              pointer-events: none;
+            }
+
+
+            .dot2.expanded {
+              height: 400px;
+              width: 400px;
+              padding: 15px;
+              font-size: 20px;
+            }
+
+
+            .contact {
+              position: absolute;
+              width: 400px;
+              height: 10px;
+              top: 195px;
+              right: 70px;
+              color: white;
+              font-size: 22px;
+              text-align: end;
+              animation: fadein 0.7s;
+              transition: transform 0.5s;
+            }
+        }
+
+        .contact::before {
+          content: "CONTACT";
+        }
+        .contact:hover {
+          font-weight: 900;
+        }
     </style>
     <title>SM Portfolio</title>
 <script src="https://kit.fontawesome.com/382ea6760c.js" crossorigin="anonymous"></script>
@@ -332,7 +373,12 @@
     </div>
     <script>
         const container = document.getElementById('container');
-        const numDots = 1999;
+        const dima=window.innerWidth;
+        const dimb=window.innerHeight;
+        let numDots = 1999;
+        if (dima<768) {
+            numDots = 899;
+        }
         const dots = [];
         
         const nome = document.getElementById('nome');
@@ -445,6 +491,7 @@
                     p1.classList.toggle("expanded");
                     p1.style.transform = `translate(0px,0px)`;
                     nome.style.transform = `translate(-50%, -50%)`;
+                    nome.style.fontSize = '40px';
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==2){
@@ -469,10 +516,15 @@
                 scelta=0;}
         }
         
-        const dima=window.innerWidth;
-        const dimb=window.innerHeight;
-        const fina=0.5566*dima
-        const finb=0.15554*dimb
+        let dx, dy;
+        if (dima>768) {
+            dx = 0.5566*dima - initialX1;
+            dy = 0.15554*dimb - initialY1;
+        }
+        else{
+            dx = dima*0.21 - initialX1;
+            dy = dimb*0.35 - initialY1;
+        }
         function pallino(){
             if (scelta!=1){
                 if (scelta==2){
@@ -487,11 +539,16 @@
                     elementi.removeChild(email);
                     elementi.removeChild(linkedin);
                 }
-                nome.style.transform = `translate(-700px,100px)`;
+                if (dima>768) {
+                    nome.style.transform = `translate(-700px,100px)`;
+                }
+                else{
+                    nome.style.transform = `translate(-50%,285px)`;
+                    nome.style.fontSize = '24px';
+                }
                 professione.style.transform = `translate(-700px,100px)`;
-                const dx = fina - initialX1;
-                const dy = finb - initialY1;
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
+                console.log(dx, dy);
                 p1.classList.toggle("expanded");
                 setTimeout(() => {
                   p1.innerHTML = "Hello, I'm Simone!<br>I am a 21-year-old final-year student at 'La Sapienza' pursuing a degree in Statistics, Economics, and Finance. I have been passionate about programming since the age of 7, when I first started on a Commodore 64 emulator. Over the years, I've gained experience working with a variety of programming languages, including C++, JavaScript, COBOL, R, SQL, and, most notably, Python, which I primarily use for developing my projects.";
@@ -504,6 +561,7 @@
                 scelta=0;
                 p1.style.transform = `translate(0px,0px)`;
                 nome.style.transform = `translate(-50%, -50%)`;
+                nome.style.fontSize = '40px';
                 professione.style.transform = `translate(-50%, -50%)`;
             }
         }
@@ -515,6 +573,7 @@
                     p1.classList.toggle("expanded");
                     p1.style.transform = `translate(0px,0px)`;
                     nome.style.transform = `translate(-50%, -50%)`;
+                    nome.style.fontSize = '40px';
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==3){
@@ -546,6 +605,7 @@
                     p1.classList.toggle("expanded");
                     p1.style.transform = `translate(0px,0px)`;
                     nome.style.transform = `translate(-50%, -50%)`;
+                    nome.style.fontSize = '40px';
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==2){
