@@ -24,7 +24,6 @@
           transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
           font-size: 40px;
           transition: transform 0.7s;
-          z-index: -2;
         }
         
 
@@ -51,7 +50,7 @@
             align-items: center;
             text-align: center;
             color: white;
-            z-index: -1;
+            z-index: -2;
         }
 
         .cornice {
@@ -63,13 +62,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: -1;
         }
         
         #elementi{
             position: absolute;
-            top: 14%;
-            right: 14%;
+            top: 10%;
+            right: 5%;
             width: 500px; 
             height: 500px;
             }
@@ -291,10 +289,11 @@
             }
 
             .dot2.expanded {
-              height: 250px;
-              width: 250px;
-              padding: 16px;
-              font-size: 14px;
+              height: 275px;
+              width: 275px;
+              padding: 25px;
+              font-size: 15px;
+              z-index: 1;
             }
 
             .contact {
@@ -341,8 +340,8 @@
             right: 10%;
         }
         }
-        
-        
+
+
         @media screen and (min-width: 769px)  {
 
             .professione{
@@ -361,6 +360,7 @@
               width: 400px;
               padding: 15px;
               font-size: 20px;
+              z-index: 1;
             }
 
 
@@ -384,6 +384,7 @@
         .contact:hover {
           font-weight: 900;
         }
+
     </style>
     <title>SM Portfolio</title>
 <script src="https://kit.fontawesome.com/382ea6760c.js" crossorigin="anonymous"></script>
@@ -556,7 +557,10 @@
             dx = dima*0.16 - initialX1;
             dy = dimb*0.35 - initialY1;
         }
+
+        let timer;
         function pallino(){
+            clearTimeout(timer);
             if (scelta!=1){
                 if (scelta==2){
                     elementi.removeChild(adg);
@@ -582,7 +586,7 @@
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
                 console.log(dx, dy);
                 p1.classList.toggle("expanded");
-                setTimeout(() => {
+                timer = setTimeout(() => {
                   p1.innerHTML = "Hello, I'm Simone!<br>I am a 21-year-old final-year student at 'La Sapienza' pursuing a degree in Statistics, Economics, and Finance. I have been passionate about programming since the age of 7, when I first started on a Commodore 64 emulator. Over the years, I've gained experience working with a variety of programming languages, including C, JavaScript, COBOL, R, SQL, and, most notably, Python, which I primarily use for developing my projects.";
                 }, "800");
                 scelta=1;
@@ -599,6 +603,7 @@
         }
         
         function progetti(){
+            clearTimeout(timer);
             if (scelta!=2){
                 if (scelta==1){
                     p1.innerHTML = "";
@@ -631,6 +636,7 @@
         }
         
         function contatti(){
+            clearTimeout(timer);
             if (scelta!=3){
                 if (scelta==1){
                     p1.innerHTML = "";
