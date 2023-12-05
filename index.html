@@ -555,7 +555,7 @@
         }
         else{
             dx = dima*0.1 - initialX1;
-            dy = dimb*0.35 - initialY1;
+            dy = dimb*0.3 - initialY1;
         }
 
         let timer;
@@ -579,7 +579,8 @@
                     professione.style.transform = `translate(-${dima*0.455}px,100px)`;
                 }
                 else{
-                    nome.style.transform = `translate(-50%,285px)`;
+                    if (dimb<700){nome.style.transform = `translate(-50%,450%)`;}
+                    else{nome.style.transform = `translate(-50%,555%)`;}
                     professione.style.transform = `translate(-700px,100px)`;
                     nome.style.fontSize = '24px';
                 }
