@@ -408,11 +408,11 @@
         const dima=window.innerWidth;
         const dimb=window.innerHeight;
         let numDots = 1999;
-        if (dima<768) {
+        if (dima<769) {
             numDots = 899;
         }
         const dots = [];
-        
+
         const nome = document.getElementById('nome');
         const professione = document.getElementById('professione');
         const p1 = document.createElement('div');
@@ -554,7 +554,7 @@
             dy = 0.15554*dimb - initialY1;
         }
         else{
-            dx = dima*0.16 - initialX1;
+            dx = dima*0.1 - initialX1;
             dy = dimb*0.35 - initialY1;
         }
 
@@ -584,7 +584,6 @@
                     nome.style.fontSize = '24px';
                 }
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
-                console.log(dx, dy);
                 p1.classList.toggle("expanded");
                 timer = setTimeout(() => {
                   p1.innerHTML = "Hello, I'm Simone!<br>I am a 21-year-old final-year student at 'La Sapienza' pursuing a degree in Statistics, Economics, and Finance. I have been passionate about programming since the age of 7, when I first started on a Commodore 64 emulator. Over the years, I've gained experience working with a variety of programming languages, including C, JavaScript, COBOL, R, SQL, and, most notably, Python, which I primarily use for developing my projects.";
