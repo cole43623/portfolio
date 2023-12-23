@@ -483,8 +483,10 @@
         contact.addEventListener("click", contatti);
         const adg = document.createElement('div');
         adg.className = 'adg';
+		adg.addEventListener("click", alacde);
         const PastDue = document.createElement('div');
         PastDue.className = 'PastDue';
+		PastDue.addEventListener("click", alacde);
         const wordle = document.createElement('div');
         const test = document.createElement('div');
         test.className = 'test';
@@ -682,6 +684,8 @@
         function apriw(){
               window.open("https://cole43623.github.io/provaportfolio/wordle/"); 
         }
+        
+        function alacde(){alert("access denied");}
     </script>
 </body>
 </html>
