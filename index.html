@@ -18,10 +18,10 @@
         }
 
         .nome{
-          position: absolute; /* Imposta la posizione assoluta per il div figlio */
-          top: 50%; /* Posiziona il div figlio a metà dell'altezza del div padre */
-          left: 50%; /* Posiziona il div figlio a metà della larghezza del div padre */
-          transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           font-size: 40px;
           transition: transform 0.7s;
         }
@@ -51,6 +51,7 @@
             text-align: center;
             color: white;
             z-index: -2;
+            white-space: pre-wrap;
         }
 
         .cornice {
@@ -79,6 +80,7 @@
             right: 0;
             width: 50px; 
             height: 49px;
+            cursor: pointer;
         }
         
         .rettangolo1 {
@@ -279,10 +281,10 @@
         
         @media screen and (max-width: 768px) {
             .professione{
-              position: absolute; /* Imposta la posizione assoluta per il div figlio */
-              top: 59%; /* Posiziona il div figlio a metà dell'altezza del div padre */
-              left: 50%; /* Posiziona il div figlio a metà della larghezza del div padre */
-              transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
+              position: absolute;
+              top: 59%;
+              left: 50%;
+              transform: translate(-50%, -50%);
               font-size: 21px;
               transition: transform 1s;
               pointer-events: none;
@@ -345,10 +347,10 @@
         @media screen and (min-width: 769px)  {
 
             .professione{
-              position: absolute; /* Imposta la posizione assoluta per il div figlio */
-              top: 57%; /* Posiziona il div figlio a metà dell'altezza del div padre */
-              left: 50%; /* Posiziona il div figlio a metà della larghezza del div padre */
-              transform: translate(-50%, -50%); /* Sposta il div figlio indietro di metà delle sue dimensioni */
+              position: absolute;
+              top: 57%;
+              left: 50%;
+              transform: translate(-50%, -50%);
               font-size: 30px;
               transition: transform 1s;
               pointer-events: none;
@@ -358,7 +360,7 @@
             .dot2.expanded {
               height: 400px;
               width: 400px;
-              padding: 15px;
+              padding: 25px;
               font-size: 20px;
               z-index: 1;
             }
@@ -587,7 +589,7 @@
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
                 p1.classList.toggle("expanded");
                 timer = setTimeout(() => {
-                  p1.innerHTML = "Hello, I'm Simone!<br>I am a 21-year-old final-year student at 'La Sapienza' pursuing a degree in Statistics, Economics, and Finance.<br>My journey has equipped me with a strong foundation in backend development, where I've applied my skills in:<br>- Python<br>- C<br>- SQL<br>- R<br>- JavaScript<br>- COBOL";
+                  p1.innerHTML = "Hello, I'm Simone!<br>I am a 21-year-old student at 'LA SAPIENZA', majoring in Statistics, Economics, and Finance. Additionally, I'm also enrolled in the programming and social skills development course at '42 ROMA LUISS'.<br>Proficient in:<br>- Python      <br>- C              <br>- SQL         <br>- R              <br>- JavaScript<br>- COBOL   ";
                 }, "800");
                 scelta=1;
             }
