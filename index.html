@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
 /* ----------------- RESET ----------------- */
+
+@font-face {
+    font-family: "CopperplateGothic";
+    src: url("fonts/CopperplateGothic-29AB.woff2") format("woff2"),
+         url("fonts/CopperplateGothic-29AB.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     overflow: hidden;
     background-color: #1a1a1a;
     height: 100dvh;
-    font-family: 'Copperplate Gothic', 'Didot', 'Garamond', serif;
+    font-family: 'CopperplateGothic', 'Copperplate Gothic', 'Copperplate', 'Didot', 'Garamond', serif;
 }
 
 #container {
@@ -78,7 +87,6 @@ body {
     border: 6px solid #888;
     margin: 20px;
     color: white;
-    font-family: 'Copperplate Gothic', 'Didot', 'Garamond', serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -506,7 +514,7 @@ body {
         }
         
         function apriw(){
-              window.open("https://cole43623.github.io/portfolio/wordle/"); 
+              window.open("https://cole43623.github.io/wordle/"); 
         }
         
         function apriava(){
