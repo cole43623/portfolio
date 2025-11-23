@@ -4,388 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #222;
-            height: 100dvh;
-        }
-        
-        #container {
-            position: absolute;
-            width: 100%;
-            height: 100dvh;
-        }
+/* ----------------- RESET ----------------- */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    height: 100dvh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .nome{
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 40px;
-          transition: transform 0.7s;
-        }
-        
+#container {
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+}
 
-        .dot {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            transition: transform 1.5s ease-out;
-            pointer-events: none;
-            z-index: -4;
-        }
+/* ----------------- NOME / PROFESSIONE ----------------- */
+.nome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    transition: transform 0.7s ease;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
 
-        .dot2 {
-            background-color: rgba(134,134,134,0.9);
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            transition: transform 1.5s ease-out, width 1s, height 1s;
-            pointer-events: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            z-index: -2;
-            white-space: pre-wrap;
-        }
+.professione {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    transition: transform 1s ease;
+    pointer-events: none;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
 
-        .cornice {
-            height: calc(100dvh - 52px);
-            border: 6px solid grey;
-            margin: 20px;
-            color: white;
-            font-family: 'Copperplate Gothic';
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        #elementi{
-            position: absolute;
-            top: 10%;
-            right: 5%;
-            width: 500px; 
-            height: 500px;
-            }
-        
-        
-        #menu {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50px; 
-            height: 49px;
-            cursor: pointer;
-        }
-        
-        .rettangolo1 {
-          width: 40px;
-          height: 3px;
-          background-color: white;
-          margin-top: 10px;
-          margin-left: 5px;
-          transition: transform 0.7s;
-        }
+/* ----------------- PUNTINI ----------------- */
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transition: transform 1.5s ease-out;
+    pointer-events: none;
+    z-index: -4;
+}
 
-        .rettangolo2 {
-          width: 40px;
-          height: 3px;
-          background-color: white;
-          margin-top: 10px;
-          margin-left: 5px;
-          transition: transform 0.7s;
-        }
+.dot2 {
+    background: linear-gradient(135deg, rgba(100,100,100,0.95), rgba(150,150,150,0.95));
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transition: transform 1.5s ease-out, width 0.8s ease, height 0.8s ease, border-radius 0.8s ease;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: -2;
+    white-space: pre-wrap;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
 
-        .rettangolo3 {
-          width: 40px;
-          height: 3px;
-          background-color: white;
-          margin-top: 10px;
-          margin-left: 5px;
-          transition: transform 0.7s;
-        }
-        
-        @keyframes fadein {
-          from { opacity: 0; }
-          to { opacity: 1; }
-         }
-        
-        .about {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 60px;
-          right: 0;
-          color: white;
-          font-size: 22px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .about::before {
-          content: "ABOUT ME";
-        }
-        .about:hover {
-          font-weight: 900;
-        }
-        
-        .works {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 90px;
-          right: 0;
-          color: white;
-          font-size: 22px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .works::before {
-          content: "RECENT WORKS";
-        }
-        .works:hover {
-          font-weight: 900;
-        }
-        
-        .adg {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 120px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .adg::before {
-          content: "Anagrafe di governo (credito) -";
-        }
-        .adg:hover {
-          font-weight: 900;
-        }
-        
-        .Avalon {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 142px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .Avalon::before {
-          content: "Avalon: online multiplayer game -";
-        }
-        .Avalon:hover {
-          font-weight: 900;
-        }
-        
-        .test {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 164px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .test::before {
-          content: "Esercitazione esame (veterinaria) -";
-        }
-        .test:hover {
-          font-weight: 900;
-        }
-        
-        .wordle {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 186px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .wordle::before {
-          content: "Risolutore Wordle (ITA) -";
-        }
-        .wordle:hover {
-          font-weight: 900;
-        }
-        
-        .stoccafisso {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 208px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-        }
-        .stoccafisso::before {
-          content: "Chess engine -";
-        }
-        .stoccafisso:hover {
-          font-weight: 900;
-        }
-        
-        .email {
-          position: absolute;
-          width: 400px;
-          height: 10px;
-          top: 143px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-          transition: transform 0.5s;
-        }
-        .email:hover {
-          font-weight: 900;
-        }
-        .email::before {
-          content: "oksimone.marinelli@gmail.com   ";
-        }
-        
-        .linkedin {
-          position: absolute;
-          width: 190px;
-          height: 10px;
-          top: 165px;
-          right: 0;
-          color: white;
-          font-size: 20px;
-          text-align: end;
-          animation: fadein 0.7s;
-          transition: transform 0.5s;
-        }
-        .linkedin:hover {
-          font-weight: 900;
-        }
-        .linkedin::before {
-          content: "My linkedin   ";
-        }
-        
-        @media screen and (max-width: 768px) {
-            .professione{
-              position: absolute;
-              top: 59%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-size: 21px;
-              transition: transform 1s;
-              pointer-events: none;
-            }
+/* ----------------- CORNICE ----------------- */
+.cornice {
+    height: calc(100dvh - 52px);
+    border: 6px solid #888;
+    margin: 20px;
+    color: white;
+    font-family: 'Copperplate Gothic', 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
 
-            .dot2.expanded {
-              height: 275px;
-              width: 275px;
-              padding: 25px;
-              font-size: 15px;
-              z-index: 1;
-            }
+/* ----------------- ELEMENTI MENU ----------------- */
+#elementi {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 500px; 
+    height: 500px;
+}
 
-            .contact {
-              position: absolute;
-              width: 150px;
-              height: 30px;
-              top: 120px;
-              right: 0;
-              color: white;
-              font-size: 18px;
-              text-align: end;
-              animation: fadein 0.7s;
-              transition: transform 0.5s;
-            }
-            .about {
-          font-size: 18px;
-        }
-        .works {
-          font-size: 18px;
-        }
-        .email {
-          font-size: 15px;
-        }
-        .linkedin {
-          font-size: 15px;
-        }
-        .adg {
-          font-size: 15px;
-        }
-        
-        .test {
-          font-size: 15px;
-        }
-        .wordle {
-          font-size: 15px;
-        }
-        .Avalon {
-          font-size: 15px;
-        }
-        .stoccafisso {
-          font-size: 15px;
-        }
-        #elementi {
-            right: 10%;
-        }
-        }
+#menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px; 
+    height: 49px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#menu:hover {
+    transform: scale(1.1);
+}
+
+.rettangolo1, .rettangolo2, .rettangolo3 {
+    width: 40px;
+    height: 3px;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 5px;
+    transition: all 0.4s ease;
+}
+
+/* ----------------- FADE-IN GENERALE ----------------- */
+@keyframes fadein {
+    from { 
+        opacity: 0;
+        transform: translateY(-40px); 
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);  
+    }
+}
+
+/* ----------------- VOCI MENU ----------------- */
+.about, .works, .adg, .Avalon, .test, .wordle, .stoccafisso, .email, .linkedin, .contact {
+    position: absolute;
+    color: white;
+    text-align: end;
+    font-size: 20px;
+    animation: fadein 0.7s forwards;
+    transition: font-weight 0.3s ease, transform 0.5s ease, top 0.7s ease;
+}
+
+.about { top: 60px; right: 0; font-size: 22px; }
+.works { top: 90px; right: 0; font-size: 22px; }
+.adg { top: 120px; right: 0; font-size: 20px; }
+.Avalon { top: 142px; right: 0; font-size: 20px; }
+.test { top: 164px; right: 0; font-size: 20px; }
+.wordle { top: 186px; right: 0; font-size: 20px; }
+.stoccafisso { top: 208px; right: 0; font-size: 20px; }
+.email { top: 143px; right: 0; font-size: 20px; }
+.linkedin { top: 165px; right: 0; font-size: 20px; }
+.contact { top: 120px; right: 0; font-size: 22px; }
 
 
-        @media screen and (min-width: 769px)  {
+/* Pseudo-content */
+.about::before { content: "ABOUT ME"; }
+.works::before { content: "RECENT WORKS"; }
+.adg::before { content: "Anagrafe di governo (credito) -"; }
+.Avalon::before { content: "Avalon: online multiplayer game -"; }
+.test::before { content: "Esercitazione esame (veterinaria) -"; }
+.wordle::before { content: "Risolutore Wordle (ITA) -"; }
+.stoccafisso::before { content: "Chess engine -"; }
+.email::before { content: "oksimone.marinelli@gmail.com   "; }
+.linkedin::before { content: "My linkedin   "; }
+.contact::before { content: "CONTACT"; }
 
-            .professione{
-              position: absolute;
-              top: 57%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-size: 30px;
-              transition: transform 1s;
-              pointer-events: none;
-            }
+/* Hover: solo font-weight, niente translate */
+.about:hover, .works:hover, .adg:hover, .Avalon:hover, .test:hover, .wordle:hover, .stoccafisso:hover, .email:hover, .linkedin:hover, .contact:hover {
+    font-weight: 900;
+}
 
+/* ----------------- MEDIA QUERY ----------------- */
+@media screen and (max-width: 768px) {
+    .professione{
+        top: 59%;
+        font-size: 21px;
+        letter-spacing: 1px;
+    }
 
-            .dot2.expanded {
-              height: 400px;
-              width: 400px;
-              padding: 25px;
-              font-size: 20px;
-              z-index: 1;
-            }
+    .dot2.expanded {
+        height: 300px;
+        width: 300px;
+        padding: 25px;
+        font-size: 14px;
+        z-index: 1;
+        border-radius: 112px;
+        line-height: 1.6;
+    }
 
+    .contact, .about, .works { font-size: 18px; }
+    .email, .linkedin, .adg, .test, .wordle, .Avalon, .stoccafisso { font-size: 15px; }
 
-            .contact {
-              position: absolute;
-              width: 400px;
-              height: 10px;
-              top: 120px;
-              right: 0;
-              color: white;
-              font-size: 22px;
-              text-align: end;
-              animation: fadein 0.7s;
-              transition: transform 0.5s;
-            }
-        }
+    #elementi { right: 10%; }
+}
 
-        .contact::before {
-          content: "CONTACT";
-        }
-        .contact:hover {
-          font-weight: 900;
-        }
+@media screen and (min-width: 769px)  {
+    .professione{
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+
+    .dot2.expanded {
+        height: 400px;
+        width: 400px;
+        padding: 25px;
+        font-size: 20px;
+        z-index: 1;
+        border-radius: 150px;
+        line-height: 1.5;
+    }
+
+    .contact { font-size: 22px; }
+}
 
     </style>
     <title>SM Portfolio</title>
@@ -536,7 +360,7 @@
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
-                    contact.style.transform = `translate(0px,0px)`;
+                    contact.style.top = '120px';
                 }
                 if (scelta==3){
                     elementi.removeChild(email);
@@ -572,7 +396,7 @@
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
-                    contact.style.transform = `translate(0px,0px)`;
+                    contact.style.top = '120px';
                 }
                 if (scelta==3){
                     elementi.removeChild(email);
@@ -621,7 +445,7 @@
                     elementi.removeChild(email);
                     elementi.removeChild(linkedin);
                 }
-                contact.style.transform = `translate(0px,122px)`;
+                contact.style.top = '242px';
                 elementi.appendChild(adg);
                 elementi.appendChild(Avalon);
                 elementi.appendChild(test);
@@ -629,7 +453,7 @@
                 elementi.appendChild(stoccafisso);
                 scelta=2;
             }else{
-                contact.style.transform = `translate(0px,0px)`;
+                contact.style.top = '120px';
                 elementi.removeChild(adg);
                 elementi.removeChild(Avalon);
                 elementi.removeChild(test);
@@ -651,12 +475,12 @@
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==2){
+					contact.style.top = '120px';
                     elementi.removeChild(adg);
                     elementi.removeChild(Avalon);
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
-                    contact.style.transform = `translate(0px,0px)`;
                 }
                     elementi.appendChild(email);
                     elementi.appendChild(linkedin);
