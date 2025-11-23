@@ -90,7 +90,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 /* ----------------- ELEMENTI MENU ----------------- */
@@ -98,7 +98,7 @@ body {
     position: absolute;
     top: 10%;
     right: 5%;
-    width: 500px; 
+    width: 700px; 
     height: 500px;
 }
 
@@ -139,6 +139,7 @@ body {
 
 /* ----------------- VOCI MENU ----------------- */
 .about, .works, .adg, .Avalon, .test, .wordle, .stoccafisso, .email, .linkedin, .contact {
+    cursor: pointer;
     position: absolute;
     color: white;
     text-align: end;
@@ -179,18 +180,18 @@ body {
 /* ----------------- MEDIA QUERY ----------------- */
 @media screen and (max-width: 768px) {
     .professione{
-        top: 59%;
+        top: calc(50% + 80px);
         font-size: 21px;
         letter-spacing: 1px;
     }
 
     .dot2.expanded {
-        height: 300px;
-        width: 300px;
+        height: 275px;
+        width: 275px;
         padding: 25px;
-        font-size: 14px;
+        font-size: 15px;
         z-index: 1;
-        border-radius: 112px;
+        border-radius: 103px;
         line-height: 1.6;
     }
 
@@ -202,7 +203,6 @@ body {
 
 @media screen and (min-width: 769px)  {
     .professione{
-        font-size: 30px;
         letter-spacing: 2px;
     }
 
@@ -219,6 +219,68 @@ body {
     .contact { font-size: 22px; }
 }
 
+@media screen and (min-width: 3600px)  {
+    .nome{
+        font-size: 80px;
+        letter-spacing: 2px;
+    }
+
+    .professione{
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+	
+	#menu {
+    width: 100px; 
+    height: 95px;
+}
+	.dot2 {
+    width: 12px;
+    height: 12px;
+}
+	.dot2.expanded {
+        height: 800px;
+        width: 800px;
+        padding: 50px;
+        font-size: 40px;
+        z-index: 1;
+        border-radius: 300px;
+        line-height: 1.5;
+    }
+	.dot {
+		width: 12px;
+		height: 12px;
+	}
+	
+	.rettangolo1, .rettangolo2, .rettangolo3 {
+		width: 80px;
+		height: 6px;
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+	.about { top: 105px; font-size: 44px; }
+	.works { top: 155px; font-size: 44px; }
+	.adg { top: 205px; font-size: 40px; }
+	.Avalon { top: 251px; font-size: 40px; }
+	.test { top: 297px; font-size: 40px; }
+	.wordle { top: 343px; font-size: 40px; }
+	.stoccafisso { top: 389px; font-size: 40px; }
+	.email { top: 255px; font-size: 40px; }
+	.linkedin { top: 300px; font-size: 40px; }
+	.contact { top: 205px; font-size: 44px; }
+}
+
+@media screen and (min-width: 5000px)  {
+	.dot2 {
+    width: 16px;
+    height: 16px;
+	}
+	
+	.dot {
+		width: 16px;
+		height: 16px;
+	}
+}
     </style>
     <title>SM Portfolio</title>
 <script src="https://kit.fontawesome.com/382ea6760c.js" crossorigin="anonymous"></script>
@@ -242,9 +304,11 @@ body {
         const dima=window.innerWidth;
         const dimb=window.innerHeight;
         let numDots = 1999;
-        if (dima<769) {
-            numDots = 899;
-        }
+        let inc=0;
+        if (dima<769)
+		{numDots = 899;}
+        else if (dima >3599)
+		{inc=85;}
         const dots = [];
 
         const nome = document.getElementById('nome');
@@ -368,7 +432,7 @@ body {
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
-                    contact.style.top = '120px';
+                    contact.style.top = 120+inc+'px';
                 }
                 if (scelta==3){
                     elementi.removeChild(email);
@@ -404,7 +468,7 @@ body {
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
-                    contact.style.top = '120px';
+                    contact.style.top = 120+inc+'px';
                 }
                 if (scelta==3){
                     elementi.removeChild(email);
@@ -453,7 +517,7 @@ body {
                     elementi.removeChild(email);
                     elementi.removeChild(linkedin);
                 }
-                contact.style.top = '242px';
+                contact.style.top = 120+inc*3.8+'px';
                 elementi.appendChild(adg);
                 elementi.appendChild(Avalon);
                 elementi.appendChild(test);
@@ -461,7 +525,7 @@ body {
                 elementi.appendChild(stoccafisso);
                 scelta=2;
             }else{
-                contact.style.top = '120px';
+                contact.style.top = 120+inc+'px';
                 elementi.removeChild(adg);
                 elementi.removeChild(Avalon);
                 elementi.removeChild(test);
@@ -483,7 +547,7 @@ body {
                     professione.style.transform = `translate(-50%, -50%)`;
                 }
                 if (scelta==2){
-					contact.style.top = '120px';
+					contact.style.top = 120+inc+'px';
                     elementi.removeChild(adg);
                     elementi.removeChild(Avalon);
                     elementi.removeChild(test);
