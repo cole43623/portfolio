@@ -169,7 +169,7 @@
           font-weight: 900;
         }
         
-        .PastDue {
+        .Avalon {
           position: absolute;
           width: 400px;
           height: 10px;
@@ -180,10 +180,10 @@
           text-align: end;
           animation: fadein 0.7s;
         }
-        .PastDue::before {
-          content: "Past due 01/01/2021 -";
+        .Avalon::before {
+          content: "Avalon: online multiplayer game -";
         }
-        .PastDue:hover {
+        .Avalon:hover {
           font-weight: 900;
         }
         
@@ -332,7 +332,7 @@
         .wordle {
           font-size: 15px;
         }
-        .PastDue {
+        .Avalon {
           font-size: 15px;
         }
         .stoccafisso {
@@ -483,10 +483,10 @@
         contact.addEventListener("click", contatti);
         const adg = document.createElement('div');
         adg.className = 'adg';
-		adg.addEventListener("click", alacde);
-        const PastDue = document.createElement('div');
-        PastDue.className = 'PastDue';
-		PastDue.addEventListener("click", alacde);
+        adg.addEventListener("click", alacde);
+        const Avalon = document.createElement('div');
+        Avalon.className = 'Avalon';
+        Avalon.addEventListener("click", apriava);
         const wordle = document.createElement('div');
         const test = document.createElement('div');
         test.className = 'test';
@@ -532,7 +532,7 @@
                 }
                 if (scelta==2){
                     elementi.removeChild(adg);
-                    elementi.removeChild(PastDue);
+                    elementi.removeChild(Avalon);
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
@@ -568,7 +568,7 @@
             if (scelta!=1){
                 if (scelta==2){
                     elementi.removeChild(adg);
-                    elementi.removeChild(PastDue);
+                    elementi.removeChild(Avalon);
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
@@ -591,7 +591,7 @@
                 p1.style.transform = `translate(${dx}px, ${dy}px)`;
                 p1.classList.toggle("expanded");
                 timer = setTimeout(() => {
-                  p1.innerHTML = "Hello, I'm Simone!<br>I am a 23-year-old student at 'LA SAPIENZA', majoring in Statistics, Economics, and Finance. Additionally, I'm also enrolled in the programming and social skills development course at '42 ROMA LUISS'.<br>Proficient in:<br>- Python      <br>- C              <br>- SQL         <br>- R              <br>- JavaScript";
+                  p1.innerHTML = "Hello, I'm Simone!<br>I am a 23-year-old student at 'La Sapienza', majoring in Statistics, Economics, and Finance. Additionally, I'm also enrolled in the programming and social skills development course at '42 ROMA LUISS'.<br>Proficient in:<br>- Python      <br>- C              <br>- SQL         <br>- R              <br>- JavaScript";
                 }, "800");
                 scelta=1;
             }
@@ -623,7 +623,7 @@
                 }
                 contact.style.transform = `translate(0px,122px)`;
                 elementi.appendChild(adg);
-                elementi.appendChild(PastDue);
+                elementi.appendChild(Avalon);
                 elementi.appendChild(test);
                 elementi.appendChild(wordle);
                 elementi.appendChild(stoccafisso);
@@ -631,7 +631,7 @@
             }else{
                 contact.style.transform = `translate(0px,0px)`;
                 elementi.removeChild(adg);
-                elementi.removeChild(PastDue);
+                elementi.removeChild(Avalon);
                 elementi.removeChild(test);
                 elementi.removeChild(wordle);
                 elementi.removeChild(stoccafisso);
@@ -652,7 +652,7 @@
                 }
                 if (scelta==2){
                     elementi.removeChild(adg);
-                    elementi.removeChild(PastDue);
+                    elementi.removeChild(Avalon);
                     elementi.removeChild(test);
                     elementi.removeChild(wordle);
                     elementi.removeChild(stoccafisso);
@@ -683,6 +683,10 @@
         
         function apriw(){
               window.open("https://cole43623.github.io/portfolio/wordle/"); 
+        }
+        
+        function apriava(){
+              window.open("https://cole43623.github.io/avalon/"); 
         }
         
         function alacde(){alert("access denied");}
